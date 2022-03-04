@@ -9,7 +9,7 @@ import Col from 'react-bootstrap/Col'
 import { useDrop } from "react-dnd";
 import "../App.css";
 
-function DragDrop({ tracks }) {
+function DragDrop({ tracks, loading, searchTerm }) {
   const [board, setBoard] = useState([]);
 
   const [{ isOver }, drop] = useDrop(() => ({
@@ -24,8 +24,9 @@ function DragDrop({ tracks }) {
 
   const addImageToBoard = (item) => {
     console.log("item is", item)
-    console.log("tracks is", tracks)
+    console.log("DRAG DROP TRACKS is", tracks)
     const track = tracks.filter((track) => {
+      console.log("ONE TRACK is", track)
       return item.id === track.trackId;
     });
     setBoard((board) => {
@@ -44,8 +45,8 @@ function DragDrop({ tracks }) {
           <Col>
             <SongContainer tracks={tracks} />
           </Col>
-          <Col>
-            <OrderedListContainer board={board} drop={drop} />
+          <Col> {tracks.length}
+            <OrderedListContainer board={board} tracks={tracks} drop={drop} />
           </Col>
         </Row>
       </Container>

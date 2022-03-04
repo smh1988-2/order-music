@@ -11,24 +11,22 @@ import Col from "react-bootstrap/Col";
 function App() {
   const [tracks, setTracks] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState("")
+  const [searchTerm, setSearchTerm] = useState("lover")
 
   useEffect(() => {
-    fetch(`https://itunes.apple.com/search?term=taylor+swift&limit=5`)
+    fetch(`https://itunes.apple.com/search?term=${searchTerm}&limit=5`)
       .then((r) => r.json())
       .then((r) => {
         console.log(r.results);
         setTracks(r.results);
       });
-  }, []);
+  }, [searchTerm, loading]);
 
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
     }, 2000);
-  });
-
-  
+  },[searchTerm]);
 
   return (
     <>
@@ -45,9 +43,9 @@ function App() {
       <SearchForm searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
       <DndProvider backend={HTML5Backend}>
-        {loading === false > 0 ? (
+        {searchTerm.length > 0 ? (
           <div className="App">
-            <DragDrop tracks={tracks} />
+            <DragDrop tracks={tracks} loading={loading} searchTerm={searchTerm} />
           </div>
         ) : (
           "loading"

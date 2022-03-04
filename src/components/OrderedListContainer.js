@@ -5,9 +5,10 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
-function OrderedListContainer({ board, drop }) {
+function OrderedListContainer({ board, drop, tracks }) {
 
     console.log("board is", board)
+    console.log("TRACKS is", tracks)
 
   return (
     <div className="board" ref={drop}>
@@ -23,7 +24,7 @@ function OrderedListContainer({ board, drop }) {
         </Row>
       </Container>
 
-      {board.length > 0 ? board.map((song) => {
+      {board.length > 0 && tracks.length > 0 ? board.map((song) => {
           console.log("song is ", song)
         return <Song
         name={song.trackName}
@@ -34,15 +35,6 @@ function OrderedListContainer({ board, drop }) {
       />
       }) : "no tracks"}
 
-      {/* {board.map((song) => {
-        return <Song
-        name={song.trackName}
-        id={song.trackId}
-        key={song.trackId}
-        artworkUrl100={song.artworkUrl100}
-        collectionName={song.collectionName}
-      />
-      })} */}
     </div>
   );
 }
