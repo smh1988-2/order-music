@@ -16,9 +16,9 @@ function Song({ id, name, artworkUrl100, collectionName }) {
   }));
 
   return (
-    <div ref={drag} className="song-card">
-      <div class="flex-container">
-        <div class="flex-child">
+    <div ref={drag}>
+      <div>
+        <div>
           <img
             src={artworkUrl100}
             alt="album-cover"
@@ -26,7 +26,7 @@ function Song({ id, name, artworkUrl100, collectionName }) {
           />
         </div>
 
-        <div class="flex-child">
+        <div>
           <h4>
             <b>{name}</b>
           </h4>

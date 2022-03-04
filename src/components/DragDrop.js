@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import SongContainer from "./SongContainer";
 import OrderedListContainer from "./OrderedListContainer";
 
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+
 import { useDrop } from "react-dnd";
 import "../App.css";
 
@@ -30,17 +34,18 @@ function DragDrop({ tracks }) {
     });
   };
   return (
-
-      <div class="flex-container">
-        <div class="flex-child">
-          <SongContainer tracks={tracks} />
-        </div>
-
-        <div class="flex-child">
-          <OrderedListContainer board={board} drop={drop} />
-        </div>
-      </div>
-
+    <div>
+      <Container>
+        <Row>
+          <Col>
+            <SongContainer tracks={tracks} />
+          </Col>
+          <Col>
+            <OrderedListContainer board={board} drop={drop} />
+          </Col>
+        </Row>
+      </Container>
+    </div>
   );
 }
 
