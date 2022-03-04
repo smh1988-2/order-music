@@ -16,21 +16,18 @@ function Song({ id, name, artworkUrl100, collectionName }) {
   }));
 
   return (
-    <div ref={drag}>
-      <div>
-        <div>
-          <img
-            src={artworkUrl100}
-            alt="album-cover"
-            style={{ width: "100%" }}
-          />
-        </div>
-
-        <div>
-          <h4>
-            <b>{name}</b>
-          </h4>
-          <p>{collectionName}</p>
+    <div ref={drag} className="song-card">
+      <div className="card">
+        <div className="row no-gutters">
+          <div className="col-auto">
+            <img src={artworkUrl100} className="img-fluid" alt="album cover" />
+          </div>
+          <div className="col">
+            <div className="card-block">
+              <h5 className="card-title">{name}</h5>
+              <p className="card-text">{collectionName}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -20,7 +20,11 @@ function DragDrop({ tracks }) {
     }),
   }));
 
+  console.log("tracks is", tracks)
+
   const addImageToBoard = (item) => {
+    console.log("item is", item)
+    console.log("tracks is", tracks)
     const track = tracks.filter((track) => {
       return item.id === track.trackId;
     });

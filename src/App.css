@@ -1,12 +1,27 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
   width: 100vw;
   height: 100vh;
 }
 
-.Board {
-  border: 2px solid black;
+.board {
+  /* border: 2px solid black; */
   width: 90%;
-  padding-top: 20px;
-  margin-top: 20px;
+  height: 100vh;
+  /* padding-top: 20px;
+  margin-top: 20px; */
+}
+
+.song-card {
+  margin: 35px;
+  padding: 10px;
+}
+
+.card-block {
+  padding-top: 10px;
+}
+
+.card-text {
+  color: darkgray;
+  font-size: 12px;
 }
